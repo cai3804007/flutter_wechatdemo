@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'friend_item.dart';
+
 class FriendPage extends StatefulWidget {
   const FriendPage({super.key});
 
@@ -15,7 +17,7 @@ class _FriendPageState extends State<FriendPage> {
         title: Text('我的'),
       ),
       body: Container(
-        child: Text('我的界面'),
+        child: FriendItem(),
       ),
     );
   }
