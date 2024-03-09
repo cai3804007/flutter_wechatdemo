@@ -42,7 +42,7 @@ class _ChatItemState extends State<ChatItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '这是一排姓名',
+                  '这是一排姓名de',
                   style: TextStyle(fontSize: 14),
                 ),
                 Text(
