@@ -1,10 +1,16 @@
 class Friends {
-  Friends({this.imageUrl, this.name, this.indexLetter, this.imageAssets});
+  Friends(
+      {this.imageUrl,
+      this.name,
+      this.indexLetter,
+      this.imageAssets,
+      this.isLocal = false});
 
   final String? imageAssets;
   final String? imageUrl;
   final String? name;
   final String? indexLetter;
+  final bool isLocal;
 }
 
 List<Friends> datas = [

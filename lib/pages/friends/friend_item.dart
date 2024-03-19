@@ -1,19 +1,39 @@
 import 'package:flutter/material.dart';
 
+import 'friend_data.dart';
+
 class FriendItem extends StatelessWidget {
-  const FriendItem({super.key});
+  Friends? friend;
+
+  FriendItem({this.friend, super.key});
+
+  // FriendItem(this.friend);
 
   @override
   Widget build(BuildContext context) {
+    // print(friend.name);
+    if (friend == null) {
+      return Container();
+    }
     return Container(
       height: 44,
       child: Row(
         children: [
-          Image.network(
-            'abc',
-            errorBuilder: (context, error, stackTrace) {
-              return Icon(Icons.error);
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: friend!.isLocal!
+                  ? Image(
+                      image: AssetImage(friend!.imageAssets!),
+                    )
+                  : Image.network(
+                      friend!.imageUrl!,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Icon(Icons.error);
+                      },
+                    ),
+            ),
           ),
           Expanded(
             child: Column(
@@ -25,13 +45,13 @@ class FriendItem extends StatelessWidget {
                   child: Align(
                     alignment: FractionalOffset.centerLeft,
                     child: Text(
-                      'datadatadatadatadata',
+                      friend!.name!,
                       textAlign: TextAlign.center,
                     ),
                   ),
                 )),
                 Container(
-                  color: Colors.red,
+                  color: Colors.grey.shade200,
                   height: 1,
                 )
               ],
