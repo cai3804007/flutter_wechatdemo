@@ -28,20 +28,17 @@ class ChatItem extends StatelessWidget {
       height: 65,
       child: Row(
         children: [
-          Container(
-            // color: Colors.red,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5), // 设置圆角半径为 5
-              child: Image(
-                image: NetworkImage(chat.imageUrl),
-                width: 40,
-                height: 40,
-                fit: BoxFit.cover,
-                errorBuilder: (BuildContext context, Object exception,
-                    StackTrace? stackTrace) {
-                  return Icon(Icons.error); // 加载失败时显示错误图标
-                },
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5), // 设置圆角半径为 5
+            child: Image(
+              image: NetworkImage(chat.imageUrl),
+              width: 40,
+              height: 40,
+              fit: BoxFit.cover,
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
+                return const Icon(Icons.error); // 加载失败时显示错误图标
+              },
             ),
           ),
           const SizedBox(

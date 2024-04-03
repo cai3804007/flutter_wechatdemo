@@ -64,37 +64,29 @@ class _ChatPageState extends State<ChatPage>
           title: Text('聊天'),
           backgroundColor: weChatThemeColor,
           scrolledUnderElevation: 0.0),
-      body: Container(
-        color: weChatThemeColor,
-        child: Column(
-          children: [
-            Expanded(
-                child: ListView.separated(
-                    itemBuilder: _buildListItem,
-                    separatorBuilder: (context, index) {
-                      if (index != 0) {
-                        return const Column(
-                          children: [
-                            Divider(
-                              height: 0.5,
-                              color: Colors.yellow,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            )
-                          ],
-                        );
-                      } else {
-                        return Container(
-                          color: Colors.red,
-                          height: 0.5,
-                        );
-                      }
-                    },
-                    itemCount: chats.length + 1)),
-          ],
-        ),
-      ),
+      body: ListView.separated(
+          itemBuilder: _buildListItem,
+          separatorBuilder: (context, index) {
+            if (index != 0) {
+              return const Column(
+                children: [
+                  Divider(
+                    height: 0.5,
+                    color: Colors.yellow,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  )
+                ],
+              );
+            } else {
+              return Container(
+                color: Colors.red,
+                height: 0.5,
+              );
+            }
+          },
+          itemCount: chats.length + 1),
     );
   }
 
